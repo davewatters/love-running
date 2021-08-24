@@ -1,3 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 body{
-    background-color: lightgreen;
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    color: #3a3a3a;
+}
+
+/* Headings and Logo */
+h1, h2 {
+    font-family: Oswald, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #252525;
+}
+
+#logo {
+    float: left;
+    font-size: 280%;
+}
+
+#menu {
+    text-align: right;  /* menu items will push to the rhs */
+    font-size: 110%;
+    letter-spacing: 4px;
+}
+
+#menu, #logo {
+    /* by default the text vertically aligns itself within it's line height
+        Also, we will use multiples of 75 (300, 600, etc) to size parts of the site 
+        so there will be balance */
+    line-height: 75px;
+}
+
+#menu li{
+    /* display:inline-block fixes the problem of the menu items being in reverse
+       order, along with #menu's 'text-align: right;'  property */
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 30px;
+}
+
+#menu a {
+    text-decoration: none;
+    /* We’ll then set the text color to inherit. This  allows the link to inherit the color from the  
+        closest parent that has the color set. In  this case it's the <body> element.    */
+    color: inherit;
+}
+
+#menu a:hover {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.active {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+
+/* hero image */
+
+#hero-outer{
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#cover-text, #cover-text h2 {
+    color: #fff;
+}
+
+#hero-image {
+    height: 600px;
+    width: 100%;
+    background: url('../images/hero-image.webp') no-repeat center center;
+
+    /* animates zoom efftect on loading page */
+    animation-name: hero-zoom;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+/* create the level of zoom for hero image */
+@keyframes hero-zoom {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+
+/* style the hero cover-text div */
+#cover-text{
+    font-size: 130%;
+    font-family: Oswald, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    width: 300px;
+    height: 200px;
+    
+    padding-top: 40px;
+    padding-left: 10px;
+    
+    background-color: rgba(241, 109, 107, .7);
+
+    bottom: 30px;
+    right: 150px;
+    position: absolute;
 }
